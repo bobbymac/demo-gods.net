@@ -24,4 +24,4 @@ Current records:
 	worker-node1 3660 IN A 172.28.128.35
 	worker-node2 3660 IN A 172.28.128.36
 	worker2 3660 IN A 10.0.100.8
-	worker3 3660 IN A 10.0.100.
+	worker3 3660 IN A 10.0.100.9
