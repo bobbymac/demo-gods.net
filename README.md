@@ -6,22 +6,22 @@ Sick of editing hosts files or using .localhost for in DNS records for demos?  S
 
 Current records:  
 
-dtr 3660 IN A 10.0.100.6
-dtr 3660 IN A 172.28.128.30
-dtr-node1 3660 IN A 172.28.128.34
-gitlab 3660 IN A 172.28.128.31
-haproxy 3660 IN A 172.28.128.30
-jenkins 3660 IN A 172.28.128.31
-nodeapp 3660 IN A 172.28.128.31
-ucp 3660 IN A 10.0.100.5
-ucp 3660 IN A 172.28.128.30
-ucp-node1 3660 IN A 172.28.128.31
-ucp-node2 3660 IN A 172.28.128.32
-ucp-node3 3660 IN A 172.28.128.33
-visualizer 3660 IN A 172.28.128.31
-wordpress 3660 IN A 172.28.128.31
-worker 3660 IN A 10.0.100.7
-worker-node1 3660 IN A 172.28.128.35
-worker-node2 3660 IN A 172.28.128.36
-worker2 3660 IN A 10.0.100.8
-worker3 3660 IN A 10.0.100.9
+	dtr 3660 IN A 10.0.100.6
+	dtr 3660 IN A 172.28.128.30
+	dtr-node1 3660 IN A 172.28.128.34
+	gitlab 3660 IN A 172.28.128.31
+	haproxy 3660 IN A 172.28.128.30
+	jenkins 3660 IN A 172.28.128.31
+	nodeapp 3660 IN A 172.28.128.31
+	ucp 3660 IN A 10.0.100.5
+	ucp 3660 IN A 172.28.128.30
+	ucp-node1 3660 IN A 172.28.128.31
+	ucp-node2 3660 IN A 172.28.128.32
+	ucp-node3 3660 IN A 172.28.128.33
+	visualizer 3660 IN A 172.28.128.31
+	wordpress 3660 IN A 172.28.128.31
+	worker 3660 IN A 10.0.100.7
+	worker-node1 3660 IN A 172.28.128.35
+	worker-node2 3660 IN A 172.28.128.36
+	worker2 3660 IN A 10.0.100.8
+	worker3 3660 IN A 10.0.100.
