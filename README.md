@@ -2,26 +2,72 @@
 Static DNS records for demos under the domain "Demo-Gods.net"
 
 
-Sick of editing hosts files or using .localhost for in DNS records for demos?  Stop sacrificing VM’s to the Demo-Gods.   The Gods have answered with basic DNS for well know frame works in the RFC 1918 space.  I will be changing/adding to this is in near future to facilitate more frameworks including unique IP addrs in both ranges of 10.0.100.0/24 and 172.28.128.0/24.  The current frame of mind is to offer 1, 3, 5 and 7 node frameworks including TXT records to explain. 
+Sick of editing hosts files or using .localhost for in DNS records for demos?  Stop sacrificing VM’s to the Demo-Gods.   The Gods have answered with basic DNS for well know frame works in the RFC 1918 space.  I will be changing/adding to this is in near future to facilitate more frameworks including unique IP addrs in the range 10.0.0.0/8.  The current frame of mind is to offer 1, 3, 5 and 7 node frameworks including TXT records to explain.
 
 Current records:  
-
+  \\ Docker Enterprise uses the 10.0.100.0/24 and 172.28.128.0/24
 	dtr 3660 IN A 10.0.100.6
-	dtr 3660 IN A 172.28.128.30
-	dtr-node1 3660 IN A 172.28.128.34
+	dtr-node1 3660 IN A 10.0.100.13
+	dtr-node2 3660 IN A 10.0.100.14
+	dtr-node3 3660 IN A 10.0.100.15
+	dtr-node4 3660 IN A 10.0.100.16
+	dtr-node5 3660 IN A 10.0.100.17
+	ucp 3660 IN A 10.0.100.5
+	ucp-node1 3660 IN A 10.0.100.10
+	ucp-node2 3660 IN A 10.0.100.11
+	ucp-node3 3660 IN A 10.0.100.12
+	ucp-node4 3660 IN A 10.0.100.18
+	ucp-node5 3660 IN A 10.0.100.19
+	worker 3660 IN A 10.0.100.7
+	worker2 3660 IN A 10.0.100.8
+	worker3 3660 IN A 10.0.100.9
+	worker4 3660 IN A 10.0.100.20
+	worker5 3660 IN A 10.0.100.21
+	worker6 3660 IN A 10.0.100.22
+	worker7 3660 IN A 10.0.100.23
+	worker8 3660 IN A 10.0.100.24
+	worker9 3660 IN A 10.0.100.25
+	worker10 3660 IN A 10.0.100.26
+	worker11 3660 IN A 10.0.100.27
+	worker12 3660 IN A 10.0.100.28
+	worker13 3660 IN A 10.0.100.29
+	worker14 3660 IN A 10.0.100.30
+	worker15 3660 IN A 10.0.100.31
+	worker16 3660 IN A 10.0.100.32
+	worker17 3660 IN A 10.0.100.33
+	worker18 3660 IN A 10.0.100.34
+	worker19 3660 IN A 10.0.100.35
+	worker20 3660 IN A 10.0.100.36
+
+	\\Gitlab
 	gitlab 3660 IN A 172.28.128.31
+
+	\\General
 	haproxy 3660 IN A 172.28.128.30
 	jenkins 3660 IN A 172.28.128.31
 	nodeapp 3660 IN A 172.28.128.31
-	ucp 3660 IN A 10.0.100.5
-	ucp 3660 IN A 172.28.128.30
-	ucp-node1 3660 IN A 172.28.128.31
-	ucp-node2 3660 IN A 172.28.128.32
-	ucp-node3 3660 IN A 172.28.128.33
 	visualizer 3660 IN A 172.28.128.31
 	wordpress 3660 IN A 172.28.128.31
-	worker 3660 IN A 10.0.100.7
-	worker-node1 3660 IN A 172.28.128.35
-	worker-node2 3660 IN A 172.28.128.36
-	worker2 3660 IN A 10.0.100.8
-	worker3 3660 IN A 10.0.100.9
+
+	\\Themes
+	gilligan 3600 IN A 10.0.110.2
+	skipper 3660 IN A 10.0.110.3
+	mr-howel 3660 IN A 10.0.110.4
+	mrs-howel 3660 IN A 10.0.110.5
+	lovey 3600 IN CNAME mrs-howel
+	ginger 3660 IN A 10.0.110.6
+	maryann 3660 IN A 10.0.110.7
+	professor 3660 IN A 10.0.110.8
+	wrongway-feldman 3660 IN A 10.0.110.9
+	dr-balinkoff 3660 IN A 10.0.110.10
+	japanese-sailor 3660 IN A 10.0.110.11
+	gorilla 3660 IN A 10.0.110.12
+	minnow 3660 IN A 10.0.110.13
+	island 3660 IN A 10.0.110.14
+	tropic-port 3660 IN A 10.0.110.15
+	2hour-tour 3660 IN A 10.0.110.16
+	mosquitoes 3660 IN A 10.0.110.17
+	bingo 3660 IN A 10.0.110.18
+	bango 3660 IN A 10.0.110.19
+	bongo 3660 IN A 10.0.110.20
+	irving 3660 IN A 10.0.110.21
