@@ -6,7 +6,7 @@ Sick of editing hosts files or using .localhost for in DNS records for demos?  S
 
 Forward DNS is publicly resolvable and the appropriate reverse zone files can be added to your own bind server.
 
-For reverse DNS,  add the following line to named.conf
+For reverse DNS,  add the following line to named.conf.  Change the SOA to reflect you DNS local server.
 
 ```zone "100.0.10.in-addr.arpa" IN { type master; file "100.0.10.in-addr.arpa.zone"; allow-update { none; }; };```
 
