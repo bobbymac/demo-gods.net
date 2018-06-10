@@ -4,8 +4,16 @@ Static DNS records for demos under the domain "Demo-Gods.net"
 
 Sick of editing hosts files or using .localhost for in DNS records for demos?  Stop sacrificing VM’s to the Demo-Gods.   The Gods have answered with basic DNS for well know frame works in the RFC 1918 space.  I will be changing/adding to this is in near future to facilitate more frameworks including unique IP addrs in the range 10.0.0.0/8.  The current frame of mind is to offer 1, 3, 5 and 7 node frameworks including TXT records to explain.
 
-Current records:  
-  \\ Docker Enterprise uses the 10.0.100.0/24 and 172.28.128.0/24
+Forward DNS is publicly resolvable and the appropriate reverse zone files can be added to your own bind server.
+
+For reverse DNS,  add the following line to named.conf
+
+```zone "100.0.10.in-addr.arpa" IN { type master; file "100.0.10.in-addr.arpa.zone"; allow-update { none; }; };```
+
+#### Current records:  
+
+Docker Enterprise uses the 10.0.100.0/24
+
 	dtr 3660 IN A 10.0.100.6
 	dtr-node1 3660 IN A 10.0.100.13
 	dtr-node2 3660 IN A 10.0.100.14
@@ -39,17 +47,17 @@ Current records:
 	worker19 3660 IN A 10.0.100.35
 	worker20 3660 IN A 10.0.100.36
 
-	\\Gitlab
-	gitlab 3660 IN A 172.28.128.31
 
-	\\General
+General
+
 	haproxy 3660 IN A 172.28.128.30
 	jenkins 3660 IN A 172.28.128.31
 	nodeapp 3660 IN A 172.28.128.31
 	visualizer 3660 IN A 172.28.128.31
 	wordpress 3660 IN A 172.28.128.31
 
-	\\Themes
+ Themes
+
 	gilligan 3600 IN A 10.0.110.2
 	skipper 3660 IN A 10.0.110.3
 	mr-howel 3660 IN A 10.0.110.4
