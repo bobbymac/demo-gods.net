@@ -10,6 +10,8 @@ For reverse DNS,  add the following line to named.conf.  Change the SOA to refle
 
 ```zone "100.0.10.in-addr.arpa" IN { type master; file "100.0.10.in-addr.arpa.zone"; allow-update { none; }; };```
 
+I am not going to go over all the bind syntax or how to configure named.conf but the current format is per /24.
+
 #### Current records:  
 
 Docker Enterprise uses the 10.0.100.0/24
