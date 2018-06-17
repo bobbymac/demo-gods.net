@@ -1,0 +1,61 @@
+$TTL	86400 ; 24 hours, could have been written as 24h or 1d
+$ORIGIN 120.0.10.IN-ADDR.ARPA.
+@  1D  IN	 SOA ns1.example.com.	hostmaster.example.com. (
+			      2002022401 ; serial
+			      3H ; refresh
+			      15 ; retry
+			      1w ; expire
+			      3h ; minimum
+			     )
+; Name servers for the zone - both out-of-zone - no A RRs required
+       IN  NS ns1.example.com.
+       IN  NS ns2.smokeyjoe.com.
+
+3 IN PTR Rachel.demo-gods.net.
+4 IN PTR Monica.demo-gods.net.
+5 IN PTR Phoebe.demo-gods.net.
+6 IN PTR Joey.demo-gods.net.
+7 IN PTR Chandler.demo-gods.net.
+8 IN PTR Ross.demo-gods.net.
+9 IN PTR Gunther.demo-gods.net.
+10 IN PTR Jack-Geller.demo-gods.net.
+11 IN PTR Judy-Geller.demo-gods.net.
+12 IN PTR Barry-Farber.demo-gods.net.
+13 IN PTR Carol-Willick.demo-gods.net.
+14 IN PTR Susan-Bunch.demo-gods.net.
+15 IN PTR Janice-Litman-Goralnik.demo-gods.net.
+16 IN PTR Mr-Heckles.demo-gods.net.
+17 IN PTR Paolo.demo-gods.net.
+18 IN PTR David.demo-gods.net.
+19 IN PTR Nora-Tyler-Bing.demo-gods.net.
+20 IN PTR Ursula-Buffay.demo-gods.net.
+21 IN PTR Julie.demo-gods.net.
+22 IN PTR Steve.demo-gods.net.
+23 IN PTR Estelle-Leonard.demo-gods.net.
+24 IN PTR Mr-Treeger.demo-gods.net.
+25 IN PTR Dr-Richard-Burke.demo-gods.net.
+26 IN PTR Frank-Buffay-Jr.demo-gods.net.
+27 IN PTR Leonard-Green.demo-gods.net.
+28 IN PTR Sandra-Green.demo-gods.net.
+29 IN PTR Eddie-Manoick.demo-gods.net.
+30 IN PTR Doug.demo-gods.net.
+31 IN PTR Mark-Robinson.demo-gods.net.
+32 IN PTR Sophie.demo-gods.net.
+33 IN PTR Phoebe-Abbott.demo-gods.net.
+34 IN PTR Pete-Becker.demo-gods.net.
+35 IN PTR Alice-Knight-Buffay.demo-gods.net.
+36 IN PTR Kathy.demo-gods.net.
+37 IN PTR Emily-Waltham.demo-gods.net.
+38 IN PTR Joshua-Burgin.demo-gods.net.
+39 IN PTR Mr-Zelner.demo-gods.net.
+40 IN PTR Gary.demo-gods.net.
+41 IN PTR Janine-LaCroix.demo-gods.net.
+42 IN PTR Elizabeth-Stevens.demo-gods.net.
+43 IN PTR Jill-Green.demo-gods.net.
+44 IN PTR Tag-Jones.demo-gods.net.
+45 IN PTR Mona.demo-gods.net.
+46 IN PTR Dr-Long.demo-gods.net.
+47 IN PTR Amy-Green.demo-gods.net.
+48 IN PTR Mike-Hannigan.demo-gods.net.
+49 IN PTR Charlie-Wheeler.demo-gods.net.
+50 IN PTR Erica.demo-gods.net.
