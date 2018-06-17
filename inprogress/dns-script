@@ -1,0 +1,16 @@
+#!/bin/bash
+
+i=2
+((i++))
+
+for i in  {2..254}
+ do
+        echo node$i A 10.202.39.$i
+ done
+
+#!/bin/bash
+for i in  {2..254}
+ do
+        echo $i PTR node$i.demo-gods.net.
+ done
+
