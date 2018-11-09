@@ -1,0 +1,45 @@
+$TTL	86400 ; 24 hours, could have been written as 24h or 1d
+$ORIGIN 0.100.0.10.IN-ADDR.ARPA.
+@  1D  IN	 SOA ns1.example.com.	hostmaster.example.com. (
+			      2002022401 ; serial
+			      3H ; refresh
+			      15 ; retry
+			      1w ; expire
+			      3h ; minimum
+			     )
+; Name servers for the zone - both out-of-zone - no A RRs required
+       IN  NS ns1.example.com.
+       IN  NS ns2.smokeyjoe.com.
+
+6 3600 IN PTR dtr.demo-gods.net.
+13 3600 IN PTR dtr-node1.demo-gods.net.
+14 3600 IN PTR dtr-node2.demo-gods.net.
+15 3600 IN PTR dtr-node3.demo-gods.net.
+16 3600 IN PTR dtr-node4.demo-gods.net.
+17 3600 IN PTR dtr-node5.demo-gods.net.
+5 3600 IN PTR ucp.demo-gods.net.
+10 3600 IN PTR ucp-node1.demo-gods.net.
+11 3600 IN PTR ucp-node2.demo-gods.net.
+12 3600 IN PTR ucp-node3.demo-gods.net.
+18 3600 IN PTR ucp-node4.demo-gods.net.
+19 3600 IN PTR ucp-node5.demo-gods.net.
+7 3600 IN PTR worker.demo-gods.net.
+8 3600 IN PTR worker2.demo-gods.net.
+9 3600 IN PTR worker3.demo-gods.net.
+20 3600 IN PTR worker4.demo-gods.net.
+21 3600 IN PTR worker5.demo-gods.net.
+22 3600 IN PTR worker6.demo-gods.net.
+23 3600 IN PTR worker7.demo-gods.net.
+24 3600 IN PTR worker8.demo-gods.net.
+25 3600 IN PTR worker9.demo-gods.net.
+26 3600 IN PTR worker10.demo-gods.net.
+27 3600 IN PTR worker11.demo-gods.net.
+28 3600 IN PTR worker12.demo-gods.net.
+29 3600 IN PTR worker13.demo-gods.net.
+30 3600 IN PTR worker14.demo-gods.net.
+31 3600 IN PTR worker15.demo-gods.net.
+32 3600 IN PTR worker16.demo-gods.net.
+33 3600 IN PTR worker17.demo-gods.net.
+34 3600 IN PTR worker18.demo-gods.net.
+35 3600 IN PTR worker19.demo-gods.net.
+36 3600 IN PTR worker20.demo-gods.net.
