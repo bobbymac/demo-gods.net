@@ -16,7 +16,7 @@ I am not going to go over all the bind syntax or how to configure named.conf but
 
 Docker Enterprise uses the 10.0.100.0/24    
 dtr 3660 IN A 10.0.100.6  
-dtr-node1 3660 IN A 10.0.100.13
+dtr-node1 3660 IN A 10.0.100.13  
 dtr-node2 3660 IN A 10.0.100.14  
 dtr-node3 3660 IN A 10.0.100.15  
 dtr-node4 3660 IN A 10.0.100.16  
