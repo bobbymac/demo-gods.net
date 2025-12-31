@@ -12,6 +12,174 @@ For reverse DNS,  add the following line to named.conf.  Change the SOA to refle
 
 I am not going to go over all the bind syntax or how to configure named.conf but the current format is per /24.
 
+---
+
+## Management Scripts
+
+This repository includes Python scripts for managing DNS zones via the Gandi LiveDNS API.
+
+### Prerequisites
+
+You need a Gandi LiveDNS API key to use these scripts. Set it up using either method:
+
+**Option 1: Environment Variable (Recommended)**
+```bash
+export GANDI_API_KEY="your-api-key-here"
+```
+
+**Option 2: API Key File**
+```bash
+echo "your-api-key-here" > api_key.txt
+```
+
+**Install Dependencies**
+```bash
+pip install requests
+```
+
+### livedns.py - Main DNS Management Tool
+
+The primary CLI tool for managing DNS zones with Gandi's LiveDNS API.
+
+#### Commands
+
+**View all zones and records**
+```bash
+python livedns.py view
+```
+Displays all DNS zones in your Gandi account with their records, formatted with color output.
+
+**Pull zones from Gandi API to local files**
+```bash
+python livedns.py pull
+```
+Downloads all zone files from Gandi's API and saves them to the `zones/` directory. Use this to:
+- Backup your current DNS configuration
+- Download zones for local editing
+- Sync remote changes to your local repository
+
+**Push local zone files to Gandi API**
+```bash
+python livedns.py push
+```
+Uploads zone files from the `zones/` directory to Gandi's API. This will:
+- Read all zone files in `zones/`
+- Update the corresponding zones in your Gandi account
+- Make the changes live on public DNS servers
+
+**Create a new zone**
+```bash
+python livedns.py new <zone-name>
+```
+Creates a new DNS zone in your Gandi account.
+
+#### How It Works
+
+The script communicates with Gandi's LiveDNS API v5 (`https://dns.api.gandi.net/api/v5`) using REST calls:
+- Uses the `requests` library for HTTP communication
+- Authenticates with your API key via the `X-Api-Key` header
+- Parses and formats DNS records for display and storage
+- Includes error handling and colored terminal output via `utils.py`
+
+### Helper Scripts
+
+Located in the `scripts/` directory, these are utilities for generating DNS records.
+
+#### dns-fwd.py - Forward DNS Generator
+
+Generates forward DNS A records from a list of hostnames.
+
+```bash
+python scripts/dns-fwd.py
+```
+
+Reads hostnames from a file named `fr.3` (one per line) and outputs DNS A records in the format:
+```
+hostname IN A 10.0.120.X
+```
+
+**Use case:** Bulk creation of sequential DNS records from a list of names (e.g., character names for themed zones).
+
+#### dns-script - Bash DNS Generator
+
+Template bash script for generating both forward and reverse DNS records.
+
+**Generate forward DNS records:**
+```bash
+# Creates node2-254 A records for 10.202.39.2-254
+for i in {2..254}; do
+    echo node$i A 10.202.39.$i
+done
+```
+
+**Generate reverse DNS (PTR) records:**
+```bash
+# Creates PTR records for reverse lookups
+for i in {2..254}; do
+    echo $i PTR node$i.demo-gods.net.
+done
+```
+
+**Use case:** Quickly generate large sets of sequential DNS records for lab environments.
+
+### Directory Structure
+
+```
+demo-gods.net/
+├── livedns.py              # Main CLI tool
+├── utils.py                # Helper functions (colors, API key loading)
+├── zones/                  # Local zone files (pull/push destination)
+│   ├── docker             # Docker Enterprise records
+│   ├── Gilligans-Island   # Gilligan's Island theme records
+│   └── Friends            # Friends TV show theme records
+├── arpa-zones/            # Reverse DNS zone files for BIND
+│   ├── 100.0.10.in-addr.arpa.zone
+│   └── 120.0.10.in-addr.arpa.zone
+└── scripts/               # DNS generation utilities
+    ├── dns-fwd.py
+    └── dns-script
+```
+
+### Workflow Examples
+
+**Initial Setup:**
+```bash
+# Set API key
+export GANDI_API_KEY="your-key"
+
+# View current zones
+python livedns.py view
+
+# Download existing zones
+python livedns.py pull
+```
+
+**Making Changes:**
+```bash
+# 1. Edit zone files in zones/ directory
+vim zones/docker
+
+# 2. Upload changes to Gandi
+python livedns.py push
+
+# 3. Verify changes are live
+python livedns.py view
+```
+
+**Creating New Themed Zones:**
+```bash
+# 1. Generate records using helper scripts
+./scripts/dns-script > zones/my-new-theme
+
+# 2. Create the zone in Gandi
+python livedns.py new my-new-theme
+
+# 3. Upload records
+python livedns.py push
+```
+
+---
+
 #### Current records:  
 
 Docker Enterprise uses the 10.0.100.0/24    

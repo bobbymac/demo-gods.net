@@ -1,16 +1,112 @@
 #!/bin/bash
 
-i=2
-((i++))
+show_help() {
+    cat << EOF
+DNS Record Generator
 
-for i in  {2..254}
- do
-        echo node$i A 10.202.39.$i
- done
+DESCRIPTION:
+    Generate forward and reverse DNS records for bulk zone creation.
+    This script contains templates for generating sequential DNS records.
 
-#!/bin/bash
-for i in  {2..254}
- do
-        echo $i PTR node$i.demo-gods.net.
- done
+USAGE:
+    $0 [OPTIONS] MODE
+
+MODES:
+    forward     Generate forward DNS A records (default)
+    reverse     Generate reverse DNS PTR records
+
+OPTIONS:
+    -h, --help          Show this help message
+    -s, --subnet SUBNET IP subnet prefix (default: 10.202.39)
+    -d, --domain DOMAIN Domain name for PTR records (default: demo-gods.net)
+    -p, --prefix PREFIX Hostname prefix (default: node)
+    -r, --range RANGE   IP range (default: 2..254)
+
+EXAMPLES:
+    # Generate forward DNS records
+    $0 forward
+
+    # Generate reverse DNS records
+    $0 reverse
+
+    # Custom subnet
+    $0 -s 10.0.100 forward
+
+    # Save to file
+    $0 forward > zones/my-nodes.zone
+
+OUTPUT:
+    Forward mode:  node2 A 10.202.39.2
+                   node3 A 10.202.39.3
+                   ...
+
+    Reverse mode:  2 PTR node2.demo-gods.net.
+                   3 PTR node3.demo-gods.net.
+                   ...
+
+EOF
+}
+
+# Default values
+SUBNET="10.202.39"
+DOMAIN="demo-gods.net"
+PREFIX="node"
+START=2
+END=254
+MODE="forward"
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        -s|--subnet)
+            SUBNET="$2"
+            shift 2
+            ;;
+        -d|--domain)
+            DOMAIN="$2"
+            shift 2
+            ;;
+        -p|--prefix)
+            PREFIX="$2"
+            shift 2
+            ;;
+        -r|--range)
+            START=$(echo "$2" | cut -d'.' -f1)
+            END=$(echo "$2" | cut -d'.' -f2)
+            shift 2
+            ;;
+        forward|reverse)
+            MODE="$1"
+            shift
+            ;;
+        *)
+            echo "Unknown option: $1"
+            echo "Use --help for usage information"
+            exit 1
+            ;;
+    esac
+done
+
+# Generate records based on mode
+case $MODE in
+    forward)
+        for i in $(seq $START $END); do
+            echo "${PREFIX}${i} A ${SUBNET}.${i}"
+        done
+        ;;
+    reverse)
+        for i in $(seq $START $END); do
+            echo "${i} PTR ${PREFIX}${i}.${DOMAIN}."
+        done
+        ;;
+    *)
+        echo "Invalid mode: $MODE"
+        echo "Use 'forward' or 'reverse'"
+        exit 1
+        ;;
+esac
 

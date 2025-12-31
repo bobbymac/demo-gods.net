@@ -160,13 +160,28 @@ if __name__ == '__main__':
         'push': push_zones,
     }
 
-    parser = argparse.ArgumentParser(description='Manage LiveDNS zone records')
+    parser = argparse.ArgumentParser(
+        description='Manage DNS zones via Gandi LiveDNS API',
+        epilog='''
+Examples:
+  %(prog)s view              View all zones and records
+  %(prog)s pull              Download zones from Gandi to local files
+  %(prog)s push              Upload local zone files to Gandi
+  %(prog)s new myzone        Create a new zone named 'myzone'
+
+Configuration:
+  Set GANDI_API_KEY environment variable or create api_key.txt file
+  Zone files are stored in: {}
+        '''.format(ZONES_FOLDER),
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     parser.add_argument(
         'command',
         choices=ALLOWED_CHOICES.keys(),
-        help='the action you want to perform',
+        metavar='COMMAND',
+        help='view: Display all zones and records | pull: Download zones to local files | push: Upload local zones to Gandi | new: Create a new zone',
     )
-    parser.add_argument('options', nargs='*', help="command-specific options")
+    parser.add_argument('options', nargs='*', help="Additional arguments (e.g., zone name for 'new' command)")
 
     args = parser.parse_args()
 
